@@ -12,8 +12,17 @@ const onGenerateSubmit = (e) => {
     showSpinner();
     setTimeout(() => {
       hideSpinner();
+      generateQRCode(url, size);
     }, 2000);
   }
+};
+
+const generateQRCode = (url, size) => {
+  const qrcode = new QRCode('qrcode', {
+    text: url,
+    width: size,
+    height: size,
+  });
 };
 
 const showSpinner = () => {
